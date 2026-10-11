@@ -1,0 +1,9 @@
+{
+  "engine": "lifelines (local, bounded 6000 per phase)",
+  "train_n": 3615,
+  "test_n": 733,
+  "unweighted_test_harrell_c": 0.6246462802373346,
+  "ph_violations_p_lt_01": [],
+  "estimand": "Cause-specific Cox/net risk, not competing-risk probability",
+  "diagnostic_note": "PH p-values retained without claiming assumption is true; penalized fitted model."
+}

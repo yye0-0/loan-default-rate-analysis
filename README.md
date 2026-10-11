@@ -16,7 +16,25 @@ python -m unittest discover -s tests -v
 python run_project.py --demo --n 6000 --output results_demo --diagnostics --forecast
 ```
 
-核心流程只需要 `requirements.txt`，不使用 `--diagnostics --forecast` 即可。CatBoost 可选：安装 `requirements-catboost.txt` 并加 `--catboost`。本次环境因缺少 `/proc/self/statm`，CatBoost 导入成功但训练失败，报告会保留原因并继续其他模型，不能将其说成已验证。
+核心流程只需要 `requirements.txt`，不使用 `--diagnostics --forecast` 即可。CatBoost 可选：安装 `requirements-catboost.txt` 并加 `--catboost`。初次本地环境因缺少 `/proc/self/statm`，CatBoost 训练失败；该历史失败仍保留在 `verified_results/`。后续标准 Linux 运行已经完成 CatBoost 训练、评估和保存重载核验，见 `CI_VERIFICATION.json` 与 `ci_verified_results/`。
+
+若实验要求 CatBoost 必须成功，使用 `--require-catboost`，它自动启用 CatBoost，并核对 12/24 月验证及测试指标和保存模型。任一期限跳过训练会以非零退出码结束；重新运行会先移除旧 `run_complete.json`，避免失败后留下上次成功的标记。进度和失败阶段记录在 `run_status.json`。
+
+## GitHub 自动复现
+
+`.github/workflows/verify.yml` 在 Pull Request、main 提交或手动触发时，使用 Ubuntu 24.04、Python 3.12、Java 17 安装锁定依赖，运行边界测试，重建 6,000 笔模拟贷款的完整 Spark、竞争风险、AFT、Cox 和 ARIMA/LSTM 流程，并要求 CatBoost 实际训练及评估完成。随后对四个阶段的完整 Spark 标签做独立核验，并验证保存模型在全部测试贷款上的推理。
+
+每次运行的结果和日志保存为 GitHub Actions artifact，保留 7 天。运行失败同样保留已生成日志。该流程只使用仓库内生成的模拟数据；不会读取真实数据、账号或外部数据下载凭证。自动复现的成功状态以实际 Actions 记录为准，加入工作流本身不代表它已经通过。
+
+首次标准 Linux 复现发现 CatBoost 1.2.7 缺少 scikit-learn 1.8 管道要求的 estimator tags。`src/catboost_compat.py` 用官方 `ClassifierMixin/BaseEstimator` 接口包装原生模型；样本权重、拟合和概率预测仍由 CatBoost 执行，未更换算法或训练参数。接口回归测试覆盖 Pipeline、权重传递、未拟合拒绝及保存重载。
+
+标准 Linux 完整验证已通过：[GitHub Actions 运行记录](https://github.com/yye0-0/loan-default-rate-analysis/actions/runs/38113215709)。25 项测试成功；四阶段完整标签一致，联合模型及 CatBoost 两期限模型在全部 733 笔测试贷款上的保存重载预测通过核验。`ci_verified_results/` 保留此次关键报告、冻结选择、版本、测试日志和 CatBoost 模型，属于精选证据目录；完整新运行可用上述命令重新生成。CatBoost 在这次模拟测试中没有优于简单 FICO Logistic，详细对照见 `RESULTS.md`。
+
+```bash
+python -m unittest discover -s tests -v
+python run_project.py --demo --n 6000 --diagnostics --forecast --require-catboost --output results_ci
+python src/verify_outputs.py --results results_ci --require-catboost
+```
 
 `verified_results/` 是本次实际完整运行的结果；不要在这份证据目录上覆盖运行。请为每次新实验选择新输出目录。训练和测试样本数量由输出日志确定，不保证改变随机生成器后与旧结果相同。
 

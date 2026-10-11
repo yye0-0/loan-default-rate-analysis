@@ -1,0 +1,84 @@
+{
+  "supported_months": 135,
+  "trimmed_startup_months": 20,
+  "validation": [
+    {
+      "start": "2017-01-01",
+      "end": "2017-12-01",
+      "metrics": {
+        "last_value": {
+          "mae": 0.00461969212921055,
+          "rmse": 0.005336502221502968
+        },
+        "seasonal_naive": {
+          "mae": 0.005205303041954083,
+          "rmse": 0.006348372980504091
+        },
+        "arima": {
+          "mae": 0.00285503966864685,
+          "rmse": 0.0037246427854448834
+        },
+        "arima_lstm": {
+          "mae": 0.003396531680396813,
+          "rmse": 0.004276560256401511
+        }
+      }
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-12-01",
+      "metrics": {
+        "last_value": {
+          "mae": 0.006106940098240125,
+          "rmse": 0.0064781542554043755
+        },
+        "seasonal_naive": {
+          "mae": 0.002344383220209625,
+          "rmse": 0.0028880120099221652
+        },
+        "arima": {
+          "mae": 0.0021241955650334863,
+          "rmse": 0.0026868425884648333
+        },
+        "arima_lstm": {
+          "mae": 0.002863026688562056,
+          "rmse": 0.003232015476747864
+        }
+      }
+    }
+  ],
+  "selection": {
+    "selected": "arima",
+    "validation_mae_mean": {
+      "last_value": 0.005363316113725338,
+      "seasonal_naive": 0.003774843131081854,
+      "arima": 0.002489617616840168,
+      "arima_lstm": 0.0031297791844794344
+    },
+    "selection": "two earlier 12-month windows; fixed ARIMA(1,0,1), LSTM 8 units/60 epochs",
+    "holdout_start": "2019-01-01"
+  },
+  "test": {
+    "last_value": {
+      "mae": 0.003144008418639816,
+      "rmse": 0.003483532801741844
+    },
+    "seasonal_naive": {
+      "mae": 0.002257854589480642,
+      "rmse": 0.003058047619036605
+    },
+    "arima": {
+      "mae": 0.002571451966705728,
+      "rmse": 0.0035831139709981883
+    },
+    "arima_lstm": {
+      "mae": 0.004049236103857505,
+      "rmse": 0.005267257058675248
+    }
+  },
+  "limits": [
+    "Observed hazard only; no causal or production forecast claim",
+    "Synthetic series tests do not show borrower business value",
+    "No uncertainty bands or tuning search; LSTM advantage not assumed"
+  ]
+}

@@ -6,7 +6,7 @@ from panel import label_asof,FEATURES
 from spark_pipeline import read_local
 from predict_risk import predict
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--results',required=True);a=p.parse_args();r=Path(a.results);d=r/'synthetic_inputs'
+    p=argparse.ArgumentParser();p.add_argument('--results',required=True);p.add_argument('--require-catboost',action='store_true');a=p.parse_args();r=Path(a.results);d=r/'synthetic_inputs'
     o=pd.read_csv(d/'orig.csv',dtype={'loan_id':str})
     m=pd.read_csv(d/'monthly.csv',keep_default_na=False,dtype={'loan_id':str,'dpd':str,'zero_code':str,'modification':str})
     if len(o)>6000:raise ValueError('Full oracle verification is bounded to 6000 synthetic loans')
@@ -33,5 +33,18 @@ def main():
     np.testing.assert_allclose(values.set_index('loan_id').sort_index()[probs],original.sort_index()[probs],atol=1e-10)
     report['saved_model_inference']={'loans':len(values),'mass_conservation':True,'all_four_cifs_monotone':True,
                                    'agrees_with_original_test_predictions':True,'selected_variant':selected}
+    if a.require_catboost:
+        from verification_gate import require_catboost
+        from risk_models import design,calibrate
+        require_catboost(json.loads((r/'risk/risk_report.json').read_text()),r/'risk')
+        for h in [12,24]:
+            bundle=joblib.load(r/'risk'/f'catboost_{h}m.joblib')
+            native=bundle['model'].named_steps['model'].model_
+            if type(native).__name__!='CatBoostClassifier':raise ValueError('Expected native CatBoost model')
+            actual=calibrate(bundle['model'].predict_proba(design(test))[:,1],bundle['platt'])
+            expected=pd.read_csv(r/'risk'/f'test_predictions_{h}m.csv',dtype={'loan_id':str}).set_index('loan_id').loc[test.loan_id,'catboost'].to_numpy()
+            np.testing.assert_allclose(actual,expected,atol=1e-10)
+        report['saved_catboost_inference']={'loans':len(test),'horizons':[12,24],
+            'native_engine':'CatBoostClassifier','agrees_with_original_test_predictions':True}
     (r/'integration_checks.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

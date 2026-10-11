@@ -112,7 +112,8 @@ def main():
         if a.catboost:
             try:
                 from catboost import CatBoostClassifier
-                definitions['catboost']=(FEATURES,CatBoostClassifier(iterations=200,depth=4,verbose=False,thread_count=2,random_seed=42))
+                from catboost_compat import SklearnCatBoostClassifier
+                definitions['catboost']=(FEATURES,SklearnCatBoostClassifier(CatBoostClassifier(iterations=200,depth=4,verbose=False,thread_count=2,random_seed=42)))
             except Exception as e:report['optional_models_not_evaluated'].append({'model':'catboost','horizon':h,'reason':str(e)})
         allp={'constant':{k:np.full(len(f),float(np.average(y[keep],weights=w[keep]))) for k,f in labels.items()}}
         for name,(cols,estimator) in definitions.items():

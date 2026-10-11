@@ -1,0 +1,396 @@
+{
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+  "phases": {
+    "train": 3615,
+    "calibration": 390,
+    "validation": 403,
+    "test": 733
+  },
+  "joint_curve": {
+    "selected_variant": "joint_calibrated",
+    "validation_mean_brier": {
+      "joint_raw": 0.07111310505916829,
+      "joint_calibrated": 0.07104701729245017
+    },
+    "selected_on": "validation only; mean 12/24 IPCW Brier",
+    "freeze_before": "2020-01-01",
+    "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+    "joint_calibration": {
+      "objective": 0.17251966900681495,
+      "success": true,
+      "parameters": [
+        0.02094843508720511,
+        0.019297280058813867,
+        -0.08778332935726436,
+        -0.005033722197531123,
+        0.02715772592439342
+      ],
+      "fitted_on": "calibration phase only; monthly log loss + ridge .002"
+    }
+  },
+  "horizons": {
+    "12": {
+      "selected_on_validation": "joint_calibrated",
+      "validation": {
+        "constant": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.054339907768845376,
+          "complete_case_brier": 0.055242468484017974,
+          "roc_auc": 0.5,
+          "average_precision": 0.05765873769755027,
+          "top_5pct_weighted_event_capture": 0.043035794352278924
+        },
+        "fico_logistic": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.05356103732538262,
+          "complete_case_brier": 0.054458598301358754,
+          "roc_auc": 0.6593775814651877,
+          "average_precision": 0.11258875652090983,
+          "top_5pct_weighted_event_capture": 0.08741226765634225
+        },
+        "full_logistic": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.053219144273866203,
+          "complete_case_brier": 0.054111251672141376,
+          "roc_auc": 0.6980400388095092,
+          "average_precision": 0.1146734551565364,
+          "top_5pct_weighted_event_capture": 0.13198673526917903
+        },
+        "hist_gradient_boosting": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.05403895593618566,
+          "complete_case_brier": 0.054936998644303105,
+          "roc_auc": 0.6384546173857446,
+          "average_precision": 0.08070247964492841,
+          "top_5pct_weighted_event_capture": 0.044574467612836774
+        },
+        "catboost": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.05388518894536234,
+          "complete_case_brier": 0.05478309479826601,
+          "roc_auc": 0.6870264597290698,
+          "average_precision": 0.09174632284008764,
+          "top_5pct_weighted_event_capture": 0.08607158870455785
+        },
+        "joint_raw": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.05305433104982343,
+          "complete_case_brier": 0.05393209310135462,
+          "roc_auc": 0.7096129475782085,
+          "average_precision": 0.1211913142786786,
+          "top_5pct_weighted_event_capture": 0.13131639579328683
+        },
+        "joint_calibrated": {
+          "known": 392,
+          "unknown": 11,
+          "minimum_G": 0.9654808381802247,
+          "supported": true,
+          "ipcw_brier": 0.053023500615691624,
+          "complete_case_brier": 0.0538859175918349,
+          "roc_auc": 0.7100843546752513,
+          "average_precision": 0.12126136528665293,
+          "top_5pct_weighted_event_capture": 0.13131639579328683
+        }
+      },
+      "test": {
+        "constant": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07792130052509982,
+          "complete_case_brier": 0.07893869787370648,
+          "roc_auc": 0.5,
+          "average_precision": 0.08417084500144542,
+          "top_5pct_weighted_event_capture": 0.0496462454762581
+        },
+        "fico_logistic": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07672058796356854,
+          "complete_case_brier": 0.07773039408627726,
+          "roc_auc": 0.6359634193285911,
+          "average_precision": 0.1611722647168195,
+          "top_5pct_weighted_event_capture": 0.14740619284620443
+        },
+        "full_logistic": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07748578428277252,
+          "complete_case_brier": 0.07849594811880918,
+          "roc_auc": 0.6139743277995042,
+          "average_precision": 0.12701341138899502,
+          "top_5pct_weighted_event_capture": 0.09827079523080294
+        },
+        "hist_gradient_boosting": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07824104838753848,
+          "complete_case_brier": 0.0792618621770951,
+          "roc_auc": 0.5358818779268781,
+          "average_precision": 0.09634490738683593,
+          "top_5pct_weighted_event_capture": 0.04913539761540147
+        },
+        "catboost": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07826391448404887,
+          "complete_case_brier": 0.07928887662717952,
+          "roc_auc": 0.5606541692620512,
+          "average_precision": 0.11157363342313205,
+          "top_5pct_weighted_event_capture": 0.08257345984014464
+        },
+        "joint_raw": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07727889240444946,
+          "complete_case_brier": 0.07827743780948426,
+          "roc_auc": 0.6167878422024885,
+          "average_precision": 0.12240090855912432,
+          "top_5pct_weighted_event_capture": 0.082062611979288
+        },
+        "joint_calibrated": {
+          "known": 715,
+          "unknown": 18,
+          "minimum_G": 0.9694451276857412,
+          "supported": true,
+          "ipcw_brier": 0.07696138252603651,
+          "complete_case_brier": 0.07794298208219685,
+          "roc_auc": 0.6167109842428629,
+          "average_precision": 0.12231103218590471,
+          "top_5pct_weighted_event_capture": 0.082062611979288,
+          "brier_bootstrap_95pct": [
+            0.06092992461564706,
+            0.09767826670652778
+          ],
+          "bootstrap_note": "Loan resampling; fixed predictions and censoring model; training uncertainty excluded"
+        }
+      }
+    },
+    "24": {
+      "selected_on_validation": "joint_calibrated",
+      "validation": {
+        "constant": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.09224015778254882,
+          "complete_case_brier": 0.10302806427010885,
+          "roc_auc": 0.5,
+          "average_precision": 0.10270944183309025,
+          "top_5pct_weighted_event_capture": 0.02415931324206978
+        },
+        "fico_logistic": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.09009212493257868,
+          "complete_case_brier": 0.10010104893993588,
+          "roc_auc": 0.6430118859927828,
+          "average_precision": 0.17931348559443142,
+          "top_5pct_weighted_event_capture": 0.08339598199274674
+        },
+        "full_logistic": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.08939725680758444,
+          "complete_case_brier": 0.09908730177674807,
+          "roc_auc": 0.6644709808945324,
+          "average_precision": 0.1956587521381326,
+          "top_5pct_weighted_event_capture": 0.10804275801360681
+        },
+        "hist_gradient_boosting": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.09139781993401556,
+          "complete_case_brier": 0.10137934973358931,
+          "roc_auc": 0.6005828763862804,
+          "average_precision": 0.13642415965596527,
+          "top_5pct_weighted_event_capture": 0.08009249672575694
+        },
+        "catboost": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.09079416047072117,
+          "complete_case_brier": 0.10075947966186406,
+          "roc_auc": 0.6345295678147376,
+          "average_precision": 0.15316741690732316,
+          "top_5pct_weighted_event_capture": 0.10852582923583143
+        },
+        "joint_raw": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.08917187906851316,
+          "complete_case_brier": 0.09924019532457362,
+          "roc_auc": 0.66385774958089,
+          "average_precision": 0.19907503169092333,
+          "top_5pct_weighted_event_capture": 0.10804275801360681
+        },
+        "joint_calibrated": {
+          "known": 319,
+          "unknown": 84,
+          "minimum_G": 0.6281647885966827,
+          "supported": true,
+          "ipcw_brier": 0.0890705339692087,
+          "complete_case_brier": 0.09881420674278832,
+          "roc_auc": 0.6638474612441184,
+          "average_precision": 0.19935873939061055,
+          "top_5pct_weighted_event_capture": 0.10804275801360681
+        }
+      },
+      "test": {
+        "constant": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.09820190583124093,
+          "complete_case_brier": 0.1135825862621952,
+          "roc_auc": 0.5,
+          "average_precision": 0.11004730704794599,
+          "top_5pct_weighted_event_capture": 0.07025044874742328
+        },
+        "fico_logistic": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.09500767553258331,
+          "complete_case_brier": 0.10912668312737119,
+          "roc_auc": 0.6606939721982683,
+          "average_precision": 0.19973050904972228,
+          "top_5pct_weighted_event_capture": 0.13985251903179272
+        },
+        "full_logistic": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.09607079796018256,
+          "complete_case_brier": 0.11030516056623621,
+          "roc_auc": 0.6351212342936807,
+          "average_precision": 0.1668482213236288,
+          "top_5pct_weighted_event_capture": 0.07774591492328699
+        },
+        "hist_gradient_boosting": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.0974129766610732,
+          "complete_case_brier": 0.11185102789679283,
+          "roc_auc": 0.5872755290725405,
+          "average_precision": 0.1406324497732729,
+          "top_5pct_weighted_event_capture": 0.03980279484055476
+        },
+        "catboost": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.09725288513988244,
+          "complete_case_brier": 0.11169642795839083,
+          "roc_auc": 0.6127441869865113,
+          "average_precision": 0.15229641742935862,
+          "top_5pct_weighted_event_capture": 0.0521997949745417
+        },
+        "joint_raw": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.09680958231851015,
+          "complete_case_brier": 0.11159458941311425,
+          "roc_auc": 0.6342371662593269,
+          "average_precision": 0.16591791674269912,
+          "top_5pct_weighted_event_capture": 0.09053364243869681
+        },
+        "joint_calibrated": {
+          "known": 597,
+          "unknown": 136,
+          "minimum_G": 0.6756205975248374,
+          "supported": true,
+          "ipcw_brier": 0.09667810768088075,
+          "complete_case_brier": 0.11101951424993327,
+          "roc_auc": 0.6344421083303491,
+          "average_precision": 0.1659805865959529,
+          "top_5pct_weighted_event_capture": 0.09053364243869681,
+          "brier_bootstrap_95pct": [
+            0.0801067821652475,
+            0.11813057955230705
+          ],
+          "bootstrap_note": "Loan resampling; fixed predictions and censoring model; training uncertainty excluded"
+        }
+      }
+    }
+  },
+  "optional_models_not_evaluated": [],
+  "limits": [
+    "Bounded local monthly classifier, not distributed training",
+    "Pooled independent-censoring assumption",
+    "Conditional on current at first observation, not lifetime default",
+    "Calendar month labels; publication lag not simulated"
+  ],
+  "selected_joint_credit_stress_proxy": {
+    "12": {
+      "known": 715,
+      "unknown": 18,
+      "minimum_G": 0.9694451276857412,
+      "supported": true,
+      "ipcw_brier": 0.08882623115767145,
+      "complete_case_brier": 0.0900100236732499,
+      "roc_auc": 0.6077758981819374,
+      "average_precision": 0.15039350498371112,
+      "top_5pct_weighted_event_capture": 0.08374855069571731
+    },
+    "24": {
+      "known": 597,
+      "unknown": 136,
+      "minimum_G": 0.6756205975248374,
+      "supported": true,
+      "ipcw_brier": 0.11369408303972366,
+      "complete_case_brier": 0.12991432467547,
+      "roc_auc": 0.6118817207152205,
+      "average_precision": 0.19326944622642223,
+      "top_5pct_weighted_event_capture": 0.08545086306521167
+    }
+  }
+}

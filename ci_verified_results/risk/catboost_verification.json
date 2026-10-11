@@ -1,0 +1,9 @@
+{
+  "catboost": "trained_and_evaluated",
+  "horizons": [
+    12,
+    24
+  ],
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+  "meaning": "Engineering verification; synthetic scores are not business evidence"
+}

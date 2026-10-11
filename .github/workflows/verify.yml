@@ -1,0 +1,60 @@
+name: Verify Spark and survival pipeline
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SPARK_LOCAL_IP: 127.0.0.1
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install -r requirements.txt -r requirements-diagnostics.txt -r requirements-forecast.txt -r requirements-catboost.txt
+          python -m pip check
+      - name: Unit and actual Spark boundary tests
+        run: |
+          mkdir -p results_ci/logs
+          set -o pipefail
+          python -m unittest discover -s tests -v 2>&1 | tee results_ci/logs/tests.log
+      - name: Rebuild full synthetic experiment with required CatBoost
+        run: python run_project.py --demo --n 6000 --diagnostics --forecast --require-catboost --output results_ci
+      - name: Independent labels and saved-model inference
+        run: python src/verify_outputs.py --results results_ci --require-catboost
+      - name: Capture dependency versions
+        if: always()
+        run: python -m pip freeze > results_ci/dependencies.txt
+      - name: Preserve new results and logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: synthetic-verification-${{ github.run_id }}
+          path: results_ci/
+          if-no-files-found: warn
+          retention-days: 7

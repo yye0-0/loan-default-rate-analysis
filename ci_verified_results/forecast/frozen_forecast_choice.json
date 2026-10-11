@@ -1,0 +1,11 @@
+{
+  "selected": "arima",
+  "validation_mae_mean": {
+    "last_value": 0.005363316113725338,
+    "seasonal_naive": 0.003774843131081854,
+    "arima": 0.002489617616840168,
+    "arima_lstm": 0.0031297791844794344
+  },
+  "selection": "two earlier 12-month windows; fixed ARIMA(1,0,1), LSTM 8 units/60 epochs",
+  "holdout_start": "2019-01-01"
+}
