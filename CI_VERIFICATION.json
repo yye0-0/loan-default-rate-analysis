@@ -1,0 +1,22 @@
+{
+  "verification_date": "2026-10-11",
+  "scope": "Standard Linux reproducibility and requested-model completion checks",
+  "local_tests": {
+    "count": 23,
+    "passed": 23,
+    "elapsed_seconds": 11.469
+  },
+  "github_actions": {
+    "status": "pending",
+    "workflow": ".github/workflows/verify.yml"
+  },
+  "real_data_training_completed": false,
+  "catboost_training_verified": false,
+  "source_sha256": {
+    "README.md": "a1c14735b092d78d67226b7016cce05c94a2f82ede68760b985b65e4a00bfb16",
+    "run_project.py": "afedb6a93a6d6996a6631bd2eb3a3ef6789a8ef3e6c9866cc5f89e68218d06a1",
+    "src/verification_gate.py": "6ae66d949125aa56072a83a5ef06dda068f62cb4495309585c5f4b90d29c0869",
+    "tests/test_verification_gate.py": "d91486f64d3c3988e89ed8c109caa83304a44e3387599bc46ff19477cf5df299",
+    ".github/workflows/verify.yml": "55fad006288f056e082d08780df178dabcfa29106896369d65f8d6326c6c203c"
+  }
+}
