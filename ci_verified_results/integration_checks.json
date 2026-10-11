@@ -1,0 +1,36 @@
+{
+  "independent_full_labels": {
+    "train": {
+      "loans": 3615,
+      "exact_match": true
+    },
+    "calibration": {
+      "loans": 390,
+      "exact_match": true
+    },
+    "validation": {
+      "loans": 403,
+      "exact_match": true
+    },
+    "test": {
+      "loans": 733,
+      "exact_match": true
+    }
+  },
+  "saved_model_inference": {
+    "loans": 733,
+    "mass_conservation": true,
+    "all_four_cifs_monotone": true,
+    "agrees_with_original_test_predictions": true,
+    "selected_variant": "joint_calibrated"
+  },
+  "saved_catboost_inference": {
+    "loans": 733,
+    "horizons": [
+      12,
+      24
+    ],
+    "native_engine": "CatBoostClassifier",
+    "agrees_with_original_test_predictions": true
+  }
+}

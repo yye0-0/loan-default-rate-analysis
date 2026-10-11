@@ -7,13 +7,24 @@
     "elapsed_seconds": 12.729
   },
   "github_actions": {
-    "status": "pending",
-    "workflow": ".github/workflows/verify.yml"
+    "status": "success",
+    "run_id": 38113215709,
+    "job_id": 114392888211,
+    "url": "https://github.com/yye0-0/loan-default-rate-analysis/actions/runs/38113215709",
+    "verified_code_commit_sha": "d257fa249e3b62cecea5523f5557ab3b5d82c312",
+    "workflow": ".github/workflows/verify.yml",
+    "tests": {
+      "count": 25,
+      "passed": 25,
+      "elapsed_seconds": 24.079
+    },
+    "artifact_id": 11691739827,
+    "artifact_sha256": "040fe53676d6c9a85167e238cb0e4b978c5eabcea7976bc92ce97d2bc79cd3a0"
   },
   "real_data_training_completed": false,
-  "catboost_training_verified": false,
+  "catboost_training_verified": true,
   "source_sha256": {
-    "README.md": "ebcc51fc856b3ac8180e35c30204b21d4b2112e00150a9eb05e4c45a97ea5ff5",
+    "README.md": "09ecd8f0ea3aeadcf89dc06d2e45a26bfa70e025f2c33e4a9b45f30ac099eb3f",
     "run_project.py": "afedb6a93a6d6996a6631bd2eb3a3ef6789a8ef3e6c9866cc5f89e68218d06a1",
     "src/verification_gate.py": "6ae66d949125aa56072a83a5ef06dda068f62cb4495309585c5f4b90d29c0869",
     "tests/test_verification_gate.py": "d91486f64d3c3988e89ed8c109caa83304a44e3387599bc46ff19477cf5df299",
@@ -30,5 +41,71 @@
       "failure": "CatBoost 1.2.7 missing sklearn 1.8 estimator tags during Pipeline prediction",
       "fix": "ClassifierMixin/BaseEstimator wrapper; native CatBoost fitting and prediction retained"
     }
-  ]
+  ],
+  "integration_checks": {
+    "independent_full_labels": {
+      "train": {
+        "loans": 3615,
+        "exact_match": true
+      },
+      "calibration": {
+        "loans": 390,
+        "exact_match": true
+      },
+      "validation": {
+        "loans": 403,
+        "exact_match": true
+      },
+      "test": {
+        "loans": 733,
+        "exact_match": true
+      }
+    },
+    "saved_model_inference": {
+      "loans": 733,
+      "mass_conservation": true,
+      "all_four_cifs_monotone": true,
+      "agrees_with_original_test_predictions": true,
+      "selected_variant": "joint_calibrated"
+    },
+    "saved_catboost_inference": {
+      "loans": 733,
+      "horizons": [
+        12,
+        24
+      ],
+      "native_engine": "CatBoostClassifier",
+      "agrees_with_original_test_predictions": true
+    }
+  },
+  "completed_stages": [
+    "generate",
+    "spark_etl",
+    "risk_models",
+    "catboost_validation",
+    "spark_aft",
+    "cox",
+    "calendar",
+    "forecast"
+  ],
+  "preserved_evidence_sha256": {
+    "ci_verified_results/README.md": "a0d92a6615728780cad4a09f415bf56da8cb40aba2949f38289d2a00b2398999",
+    "ci_verified_results/run_complete.json": "8a28587a5d3dfbad6aeba633c649d3457f1a768d58018a4f094f0d681aa0ce7a",
+    "ci_verified_results/dependencies.txt": "dd29e559f8cdf5d06cc9aeb2283bf92e69ff73e465bde592f5a0b2c67bc3b0d1",
+    "ci_verified_results/integration_checks.json": "3c6ced108685505d33cf1843aed093d53a23b3cf5985e8722e9e19721803e8c0",
+    "ci_verified_results/run_status.json": "e52a66a9de32a617980b4eef550ad5a5e6abccb9bda308857414859aa9225fc1",
+    "ci_verified_results/forecast/forecast_report.json": "c82db9f6635b98164a32826db11d0abcef517d53b1dd5ae230ea20208b3152ea",
+    "ci_verified_results/forecast/frozen_forecast_choice.json": "11cb3cf62530e525e6c088bdcfcef346331470410597ed19be5c65a6dc18633f",
+    "ci_verified_results/risk/frozen_choice_12m.json": "d2379b9e4b89d4b89973d9174ffec210c82797e517ba6571b0f43e8d2c02e9cb",
+    "ci_verified_results/risk/frozen_joint_curve.json": "b707d5ef8844800c86304ea7c610f9475b5d87bb3fb85c6ccaac73cbcb4a959d",
+    "ci_verified_results/risk/catboost_12m.joblib": "f0c22fdc042d36d7b94374b6dc4cb2f9d9c57df4db3fd9e60fd9078785c84b8f",
+    "ci_verified_results/risk/catboost_verification.json": "1f2546aa952c9eb95ecb52af33d6750e613efe6bc10c6b02e4c35e1cdcee5cc0",
+    "ci_verified_results/risk/frozen_choice_24m.json": "0f6f1ce564422fcb7e8e6e0445eb4ea8971d7012ad54c4d544915b77a62b0d96",
+    "ci_verified_results/risk/catboost_24m.joblib": "555c5eb9b6dea35be5408d1ae24baeeca3a6303fa1e240d2b56aa204221a1bfa",
+    "ci_verified_results/risk/risk_report.json": "b92492ecee5b49cebf67a2a14b94be4d19951d7ae511ff6dad9e74eba61fd2ca",
+    "ci_verified_results/cox/cox_report.json": "e0cad10043d0a991e7e665248e87e7dd6c73ee7544c24def201a807fc3065f2d",
+    "ci_verified_results/spark/spark_run.json": "fd0ded6486582bed3e2b9f253626af9a73f3d49db0f58c292917e40935e64d3e",
+    "ci_verified_results/logs/tests.log": "a65af07ea74f2a352916006a0bb586bff5e8338c8b2e844ae0378c5abd007259",
+    "ci_verified_results/aft/aft_report.json": "159ec80724ef84956afec449d196e57f10eb77647a604c82bf1c8b167ada00e1"
+  }
 }
