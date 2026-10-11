@@ -2,9 +2,9 @@
   "verification_date": "2026-10-11",
   "scope": "Standard Linux reproducibility and requested-model completion checks",
   "local_tests": {
-    "count": 23,
-    "passed": 23,
-    "elapsed_seconds": 11.469
+    "count": 25,
+    "passed": 25,
+    "elapsed_seconds": 12.729
   },
   "github_actions": {
     "status": "pending",
@@ -13,10 +13,22 @@
   "real_data_training_completed": false,
   "catboost_training_verified": false,
   "source_sha256": {
-    "README.md": "a1c14735b092d78d67226b7016cce05c94a2f82ede68760b985b65e4a00bfb16",
+    "README.md": "ebcc51fc856b3ac8180e35c30204b21d4b2112e00150a9eb05e4c45a97ea5ff5",
     "run_project.py": "afedb6a93a6d6996a6631bd2eb3a3ef6789a8ef3e6c9866cc5f89e68218d06a1",
     "src/verification_gate.py": "6ae66d949125aa56072a83a5ef06dda068f62cb4495309585c5f4b90d29c0869",
     "tests/test_verification_gate.py": "d91486f64d3c3988e89ed8c109caa83304a44e3387599bc46ff19477cf5df299",
-    ".github/workflows/verify.yml": "55fad006288f056e082d08780df178dabcfa29106896369d65f8d6326c6c203c"
-  }
+    ".github/workflows/verify.yml": "31b347382bea156704875dec5b82078bde804a28c34a48802a6b30a82c4c5aeb",
+    "src/risk_models.py": "15398304e127b8e5de84857e150c02a97ebb181ba4c89724cce8ef3b7b74f151",
+    "src/verify_outputs.py": "e4d0b68f5ef0deeda841fd64c6bf5ef43f6e2ce399815f5c7d26151bd196af4a",
+    "src/catboost_compat.py": "3705e9d3c53cdfc04a2788096b31459a90266692fee55859dc91f8949f543a9e",
+    "tests/test_catboost_compat.py": "5ce48cad14643c8227f3d9135e1761a61d057f2606cc787b6a61a086f7d9e277"
+  },
+  "previous_runs": [
+    {
+      "run_id": 38112808113,
+      "conclusion": "failure",
+      "failure": "CatBoost 1.2.7 missing sklearn 1.8 estimator tags during Pipeline prediction",
+      "fix": "ClassifierMixin/BaseEstimator wrapper; native CatBoost fitting and prediction retained"
+    }
+  ]
 }

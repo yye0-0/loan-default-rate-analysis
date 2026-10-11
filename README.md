@@ -26,10 +26,12 @@ python run_project.py --demo --n 6000 --output results_demo --diagnostics --fore
 
 每次运行的结果和日志保存为 GitHub Actions artifact，保留 7 天。运行失败同样保留已生成日志。该流程只使用仓库内生成的模拟数据；不会读取真实数据、账号或外部数据下载凭证。自动复现的成功状态以实际 Actions 记录为准，加入工作流本身不代表它已经通过。
 
+首次标准 Linux 复现发现 CatBoost 1.2.7 缺少 scikit-learn 1.8 管道要求的 estimator tags。`src/catboost_compat.py` 用官方 `ClassifierMixin/BaseEstimator` 接口包装原生模型；样本权重、拟合和概率预测仍由 CatBoost 执行，未更换算法或训练参数。接口回归测试覆盖 Pipeline、权重传递、未拟合拒绝及保存重载。
+
 ```bash
 python -m unittest discover -s tests -v
 python run_project.py --demo --n 6000 --diagnostics --forecast --require-catboost --output results_ci
-python src/verify_outputs.py --results results_ci
+python src/verify_outputs.py --results results_ci --require-catboost
 ```
 
 `verified_results/` 是本次实际完整运行的结果；不要在这份证据目录上覆盖运行。请为每次新实验选择新输出目录。训练和测试样本数量由输出日志确定，不保证改变随机生成器后与旧结果相同。

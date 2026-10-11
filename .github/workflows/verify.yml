@@ -46,7 +46,7 @@ jobs:
       - name: Rebuild full synthetic experiment with required CatBoost
         run: python run_project.py --demo --n 6000 --diagnostics --forecast --require-catboost --output results_ci
       - name: Independent labels and saved-model inference
-        run: python src/verify_outputs.py --results results_ci
+        run: python src/verify_outputs.py --results results_ci --require-catboost
       - name: Capture dependency versions
         if: always()
         run: python -m pip freeze > results_ci/dependencies.txt
