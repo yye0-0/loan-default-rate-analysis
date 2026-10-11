@@ -1,0 +1,14 @@
+{
+  "engine": "Spark MLlib AFTSurvivalRegression",
+  "spark_version": "3.5.7",
+  "master": "local[2]",
+  "scale_sigma": 0.8685598324651518,
+  "weibull_shape": 1.1513311606430083,
+  "elapsed_seconds": 8.624834990000181,
+  "split_counts": {
+    "train": 3615,
+    "validation": 403,
+    "test": 733
+  },
+  "estimand": "Cause-specific Weibull net risk; competing events censored. 1-S is not cumulative incidence."
+}

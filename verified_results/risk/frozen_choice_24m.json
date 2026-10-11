@@ -1,0 +1,72 @@
+{
+  "selected": "joint_calibrated",
+  "validation": {
+    "constant": {
+      "known": 319,
+      "unknown": 84,
+      "minimum_G": 0.6281647885966827,
+      "supported": true,
+      "ipcw_brier": 0.09224015778254882,
+      "complete_case_brier": 0.10302806427010885,
+      "roc_auc": 0.5,
+      "average_precision": 0.10270944183309025,
+      "top_5pct_weighted_event_capture": 0.02415931324206978
+    },
+    "fico_logistic": {
+      "known": 319,
+      "unknown": 84,
+      "minimum_G": 0.6281647885966827,
+      "supported": true,
+      "ipcw_brier": 0.09009212435247087,
+      "complete_case_brier": 0.10010104832433088,
+      "roc_auc": 0.6430118859927828,
+      "average_precision": 0.17931348559443142,
+      "top_5pct_weighted_event_capture": 0.08339598199274674
+    },
+    "full_logistic": {
+      "known": 319,
+      "unknown": 84,
+      "minimum_G": 0.6281647885966827,
+      "supported": true,
+      "ipcw_brier": 0.08939725739921593,
+      "complete_case_brier": 0.0990873028102209,
+      "roc_auc": 0.6644709808945324,
+      "average_precision": 0.1956587521381326,
+      "top_5pct_weighted_event_capture": 0.10804275801360681
+    },
+    "hist_gradient_boosting": {
+      "known": 319,
+      "unknown": 84,
+      "minimum_G": 0.6281647885966827,
+      "supported": true,
+      "ipcw_brier": 0.09139781970971561,
+      "complete_case_brier": 0.10137934981778209,
+      "roc_auc": 0.6005828763862804,
+      "average_precision": 0.13642415965596527,
+      "top_5pct_weighted_event_capture": 0.08009249672575694
+    },
+    "joint_raw": {
+      "known": 319,
+      "unknown": 84,
+      "minimum_G": 0.6281647885966827,
+      "supported": true,
+      "ipcw_brier": 0.08917187906851316,
+      "complete_case_brier": 0.09924019532457365,
+      "roc_auc": 0.66385774958089,
+      "average_precision": 0.19907503169092333,
+      "top_5pct_weighted_event_capture": 0.10804275801360681
+    },
+    "joint_calibrated": {
+      "known": 319,
+      "unknown": 84,
+      "minimum_G": 0.6281647885966827,
+      "supported": true,
+      "ipcw_brier": 0.08907053395284852,
+      "complete_case_brier": 0.0988142074447165,
+      "roc_auc": 0.6638474612441184,
+      "average_precision": 0.19935873939061055,
+      "top_5pct_weighted_event_capture": 0.10804275801360681
+    }
+  },
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST"
+}

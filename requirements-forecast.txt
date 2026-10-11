@@ -1,0 +1,3 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+statsmodels==0.14.6
+torch==2.8.0+cpu

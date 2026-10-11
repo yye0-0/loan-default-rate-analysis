@@ -1,0 +1,13 @@
+{
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+  "completed": [
+    "generate",
+    "spark_etl",
+    "risk_models",
+    "spark_aft",
+    "cox",
+    "calendar",
+    "forecast"
+  ],
+  "real_data_experiment": false
+}

@@ -1,0 +1,82 @@
+{
+  "data_kind": "SYNTHETIC_SMOKE_TEST",
+  "split_counts": [
+    1199,
+    394,
+    807
+  ],
+  "train_end": "2014-12-31",
+  "valid_end": "2015-12-31",
+  "target": "source final-status isDefault; horizon unknown",
+  "feature_set": "add_grade_proxy",
+  "numeric_features": [
+    "loanAmnt",
+    "term",
+    "interestRate",
+    "annualIncome",
+    "dti",
+    "ficoRangeMean",
+    "revolUtil",
+    "credit_history_length",
+    "loan_to_income",
+    "monthly_payment",
+    "payment_to_income_ratio",
+    "total_loan_cost",
+    "capm_grade_proxy"
+  ],
+  "optional_models_not_evaluated": [
+    {
+      "model": "catboost",
+      "reason": "(Error 2: No such file or directory) util/system/file.cpp:936: can't open \"/proc/self/statm\" with mode RdOnly|Seq (0x00000028)"
+    }
+  ],
+  "models": {
+    "logistic": {
+      "threshold": 0.2668354430379747,
+      "validation": {
+        "roc_auc": 0.8380851063829786,
+        "average_precision": 0.6029075674015025,
+        "brier": 0.12848810462458496,
+        "accuracy": 0.7741116751269036,
+        "precision": 0.5172413793103449,
+        "recall": 0.7978723404255319,
+        "f1": 0.6276150627615062
+      },
+      "test": {
+        "roc_auc": 0.8434367045867747,
+        "average_precision": 0.5959333399591377,
+        "brier": 0.1261181287310019,
+        "accuracy": 0.79182156133829,
+        "precision": 0.5340909090909091,
+        "recall": 0.7580645161290323,
+        "f1": 0.6266666666666667
+      }
+    },
+    "random_forest": {
+      "threshold": 0.40506329113924056,
+      "validation": {
+        "roc_auc": 0.8489716312056738,
+        "average_precision": 0.6082043344755144,
+        "brier": 0.12811155344633213,
+        "accuracy": 0.8147208121827412,
+        "precision": 0.5963302752293578,
+        "recall": 0.6914893617021277,
+        "f1": 0.6403940886699507
+      },
+      "test": {
+        "roc_auc": 0.8392204733953212,
+        "average_precision": 0.5703039552456814,
+        "brier": 0.13033932144179997,
+        "accuracy": 0.7930607187112764,
+        "precision": 0.5429864253393665,
+        "recall": 0.6451612903225806,
+        "f1": 0.5896805896805897
+      }
+    }
+  },
+  "pca": {
+    "components": 8,
+    "retained_variance": 0.9739934939384836
+  }
+}
+

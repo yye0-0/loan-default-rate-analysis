@@ -1,0 +1,13 @@
+{
+  "asof": "2019-12-01",
+  "age_weights": {
+    "7-12": 0.2896337866761043,
+    "13-24": 0.3569779395655325,
+    "1-6": 0.17132649105954126,
+    "25+": 0.18206178269882198
+  },
+  "weight_fit_cutoff": "2015-12-01",
+  "target": "Observed conditional calendar D90 hazard; no portfolio/default-rate identity claim",
+  "support": "at risk >=100, all four age bands each >=10",
+  "months": 155
+}

@@ -1,0 +1,147 @@
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/10 22:22:23 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/10 22:22:23 WARN MacAddressUtil: Failed to find a usable hardware address from the network interfaces; using random bytes: 89:c1:73:ec:a7:ff:9e:28
+[Stage 32:>                                                         (0 + 1) / 1]                                                                                {
+  "engine": "Apache Spark",
+  "spark_version": "3.5.7",
+  "master": "local[2]",
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+  "orig_rows": 6000,
+  "monthly_rows": 120639,
+  "input_version": "canonical",
+  "phases": {
+    "train": {
+      "loans": 3615,
+      "events": {
+        "4": 170,
+        "2": 1313,
+        "0": 1725,
+        "1": 333,
+        "3": 74
+      },
+      "included_stop_reasons": {
+        "unknown_or_modification": 38,
+        "gap": 37,
+        "event": 1890,
+        "administrative": 1650
+      },
+      "all_input_audit_reasons": {
+        "unknown_or_modification": 38,
+        "no_followup_interval": 37,
+        "gap": 37,
+        "event": 1890,
+        "no_history_asof": 2348,
+        "administrative": 1650
+      },
+      "start": "2007-01-01",
+      "end": "2015-12-01",
+      "asof": "2015-12-01"
+    },
+    "calibration": {
+      "loans": 390,
+      "events": {
+        "2": 155,
+        "4": 26,
+        "0": 158,
+        "3": 9,
+        "1": 42
+      },
+      "included_stop_reasons": {
+        "unknown_or_modification": 6,
+        "gap": 3,
+        "administrative": 149,
+        "event": 232
+      },
+      "all_input_audit_reasons": {
+        "unknown_or_modification": 58,
+        "no_followup_interval": 35,
+        "gap": 54,
+        "event": 2841,
+        "administrative": 2279,
+        "no_history_asof": 733
+      },
+      "start": "2016-01-01",
+      "end": "2016-12-01",
+      "asof": "2019-12-01"
+    },
+    "validation": {
+      "loans": 403,
+      "events": {
+        "2": 158,
+        "4": 17,
+        "0": 180,
+        "1": 39,
+        "3": 9
+      },
+      "included_stop_reasons": {
+        "unknown_or_modification": 5,
+        "gap": 6,
+        "event": 223,
+        "administrative": 169
+      },
+      "all_input_audit_reasons": {
+        "unknown_or_modification": 58,
+        "no_followup_interval": 35,
+        "gap": 54,
+        "event": 2841,
+        "administrative": 2279,
+        "no_history_asof": 733
+      },
+      "start": "2017-01-01",
+      "end": "2017-12-01",
+      "asof": "2019-12-01"
+    },
+    "test": {
+      "loans": 733,
+      "events": {
+        "2": 287,
+        "4": 39,
+        "1": 84,
+        "0": 306,
+        "3": 17
+      },
+      "included_stop_reasons": {
+        "gap": 11,
+        "event": 427,
+        "administrative": 288,
+        "unknown_or_modification": 7
+      },
+      "all_input_audit_reasons": {
+        "unknown_or_modification": 68,
+        "gap": 67,
+        "event": 3547,
+        "administrative": 2318
+      },
+      "start": "2020-01-01",
+      "end": "2021-12-01",
+      "asof": "2023-12-01"
+    }
+  },
+  "input_sha256": {
+    "orig": "a8086a429a1a28aac7a925bfa8730fb76e7327f52a51d72fee6badbb7ffcd543",
+    "monthly": "4931ba7eec85e3bd01fc38330a4bbb76ee362806e56485cd2260fc60c38dd78a",
+    "config": "6db42d2da4296e4894f3594b39ca7ed2a44748dd32565ba0e9a1aa6042418397"
+  },
+  "quality": {
+    "missing_features": {
+      "fico": 0,
+      "dti": 0,
+      "ltv": 0,
+      "interest_rate": 0,
+      "loan_amount": 0
+    },
+    "modification_rows": 649,
+    "transfer_15_16_rows": 213,
+    "dpd_counts": {
+      "RA": 803,
+      "1": 1801,
+      "XX": 68,
+      "2": 1974,
+      "3": 2599,
+      "0": 113394
+    },
+    "same_month_numeric_d90_and_exit_rows": 0
+  },
+  "elapsed_seconds": 18.31572813599996
+}

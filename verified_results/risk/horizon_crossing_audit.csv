@@ -1,0 +1,7 @@
+model,crossed_12_gt_24,meaning
+constant,0,Separate fixed-horizon baseline; use selected joint curve for coherent inference
+fico_logistic,0,Separate fixed-horizon baseline; use selected joint curve for coherent inference
+full_logistic,0,Separate fixed-horizon baseline; use selected joint curve for coherent inference
+hist_gradient_boosting,0,Separate fixed-horizon baseline; use selected joint curve for coherent inference
+joint_raw,0,Separate fixed-horizon baseline; use selected joint curve for coherent inference
+joint_calibrated,0,Separate fixed-horizon baseline; use selected joint curve for coherent inference

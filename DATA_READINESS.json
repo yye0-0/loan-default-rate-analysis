@@ -1,0 +1,6 @@
+{
+  "source": "https://www.freddiemac.com/fmac-resources/research/docs/release-47-sample-files.zip",
+  "real_data_training_completed": false,
+  "download_error": "HTTP Error 403: Forbidden",
+  "decision": "No matched real-data experiment completed; requires official registered files."
+}

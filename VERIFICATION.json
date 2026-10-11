@@ -1,0 +1,97 @@
+{
+  "status": "verified_engineering_extension",
+  "verification_date": "2026-10-11",
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+  "real_data_results": null,
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "pyspark": "3.5.7",
+    "pyarrow": "19.0.1",
+    "lifelines": "0.30.0",
+    "statsmodels": "0.14.6",
+    "torch": "2.8.0+cpu",
+    "catboost": "1.2.7"
+  },
+  "java": "OpenJDK 17",
+  "spark_master": "local[2]",
+  "uploaded_prototype_sha256": "e9e45758e88584e34f434494219943bbfb6697e899b6b1c9369a862f9c83686a",
+  "actual_input": {
+    "loans": 6000,
+    "loan_months": 120639
+  },
+  "tests": {
+    "count": 19,
+    "passed": 19,
+    "log": "tests/verification_run.log"
+  },
+  "integration_checks": {
+    "independent_full_labels": {
+      "train": {
+        "loans": 3615,
+        "exact_match": true
+      },
+      "calibration": {
+        "loans": 390,
+        "exact_match": true
+      },
+      "validation": {
+        "loans": 403,
+        "exact_match": true
+      },
+      "test": {
+        "loans": 733,
+        "exact_match": true
+      }
+    },
+    "saved_model_inference": {
+      "loans": 733,
+      "mass_conservation": true,
+      "all_four_cifs_monotone": true,
+      "agrees_with_original_test_predictions": true,
+      "selected_variant": "joint_calibrated"
+    }
+  },
+  "completed_stages": [
+    "generate",
+    "spark_etl",
+    "risk_models",
+    "spark_aft",
+    "cox",
+    "calendar",
+    "forecast",
+    "tabular_ablation",
+    "saved_model_inference",
+    "full_label_oracle"
+  ],
+  "not_completed": [
+    "Matched real-data experiment",
+    "CatBoost training (missing /proc/self/statm)",
+    "Historical publication-vintage backtest",
+    "Multi-node scale benchmark",
+    "Production or business-impact validation"
+  ],
+  "environment_note": "Sandbox Spark launcher used a temporary file instead of unavailable /dev/fd process substitution; environment-only patch. Standard local Java/Spark installation normally requires no patch.",
+  "source_sha256": {
+    "src/risk_models.py": "051c7a884ba64d4e65a58663c6693d4f87c257ab8902cc956b4cfb7b65ba7905",
+    "src/verify_outputs.py": "af0613a325d470566e2edd3c50fefd8ba61b454d59c70fb0c212159c740baf6a",
+    "src/calendar_series.py": "3752cc05ded29c020a2db734badb855f827ede6ca5387f5d75c2e90d4a11139f",
+    "src/spark_aft.py": "ca38cba501d61123d314535ced01cb4d64a3c83e06372760d1f55324d014a951",
+    "src/classify.py": "1d9a5221b251012cf25699bd328263b2b0138204f888e1f56f77bfc06b783347",
+    "src/spark_pipeline.py": "115525b9e47cd69b6dc05e54f02e029928376418865f855c09de37d21204d789",
+    "src/features.py": "20703f8a03f942004e34096c4903b521b3b867d5ab7e9bc83cb53c047d309167",
+    "src/forecast.py": "0ce92ca07e504a5faf20a414f2d52ff3a771617887df5fe22ec4beadd34bf485",
+    "src/metrics.py": "5526253ed014a0473e7468ab12ea37906bbc1157fea2ca0625415824f27a43c2",
+    "src/make_demo_v2.py": "f9ad6dcc226bcbaa442296316dd9f35b0826b2f4c34d6c48e1fc19a98bb07815",
+    "src/predict_risk.py": "1a56857e0766103fed3e23bb60b16f84213e8d2ca774aeab987bec26eceeea9f",
+    "src/panel.py": "401ba00222119d05bc7c65a34c0c050bc5ce9b4210955ca579f2587db91bfd28",
+    "src/make_demo.py": "3f0a06e09a5c801f52db2c3abd8e1f4608594e5de13a3de9228b5df06707ff07",
+    "src/cox_diagnostics.py": "cc33ae3a0f07050dba59cea56cb290332d7ff96599808cef2b9d6e1547cf88aa",
+    "tests/test_core.py": "a04d5393fd54b6012f59b52e7472e4e8883b3d4b60527170ac5746007c58c359",
+    "run_project.py": "af92a2430d336f3459d09e790456099e2ea0fb58cfa31f9a63b895ae38705fd1"
+  }
+}

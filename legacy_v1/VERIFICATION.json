@@ -1,0 +1,41 @@
+{
+  "status": "reconstruction_prototype",
+  "verified": "synthetic data only",
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
+  "source_attachments": [
+    {
+      "name": "part2+3(1).docx",
+      "sha256": "28c1b9f138188e560274e71f06349f1806ee0f872ec1c65d30b8b3d71c131adc"
+    },
+    {
+      "name": "Data Mining Group 3(1).pptx",
+      "sha256": "ae6d3dbf0dd32ca371958c1d0ffcd704923cbe269cb31f56439a594a5265be96"
+    }
+  ],
+  "tests": [
+    "no target dependence in features",
+    "first event/payoff/gap rules",
+    "Weibull signal recovery"
+  ],
+  "functional_runs": [
+    "2400 synthetic loans, 45014 loan-months",
+    "logistic and random forest with temporal splits",
+    "PCA and KMeans",
+    "Weibull AFT and empirical competing-risk cumulative incidence"
+  ],
+  "not_executed": [
+    "PySpark",
+    "CatBoost",
+    "lifelines Cox",
+    "ARIMA",
+    "LSTM"
+  ],
+  "real_data_results": null
+}

@@ -1,0 +1,62 @@
+{
+  "data_kind": "SYNTHETIC_SMOKE_TEST",
+  "split_counts": [
+    1199,
+    394,
+    807
+  ],
+  "train_end": "2014-12-31",
+  "valid_end": "2015-12-31",
+  "target": "source final-status isDefault; horizon unknown",
+  "feature_set": "base",
+  "numeric_features": [
+    "loanAmnt",
+    "term",
+    "interestRate",
+    "annualIncome",
+    "dti",
+    "ficoRangeMean",
+    "revolUtil",
+    "credit_history_length",
+    "loan_to_income",
+    "monthly_payment",
+    "payment_to_income_ratio",
+    "total_loan_cost"
+  ],
+  "optional_models_not_evaluated": [
+    {
+      "model": "catboost",
+      "reason": "(Error 2: No such file or directory) util/system/file.cpp:936: can't open \"/proc/self/statm\" with mode RdOnly|Seq (0x00000028)"
+    }
+  ],
+  "models": {
+    "logistic": {
+      "threshold": 0.3556962025316456,
+      "validation": {
+        "roc_auc": 0.8388297872340426,
+        "average_precision": 0.6036130365797673,
+        "brier": 0.12806926345852704,
+        "accuracy": 0.8020304568527918,
+        "precision": 0.5689655172413793,
+        "recall": 0.7021276595744681,
+        "f1": 0.6285714285714286
+      }
+    },
+    "random_forest": {
+      "threshold": 0.3754430379746836,
+      "validation": {
+        "roc_auc": 0.8497163120567375,
+        "average_precision": 0.6015579677093791,
+        "brier": 0.12851199858642282,
+        "accuracy": 0.817258883248731,
+        "precision": 0.5982142857142857,
+        "recall": 0.7127659574468085,
+        "f1": 0.6504854368932039
+      }
+    }
+  },
+  "pca": {
+    "components": 8,
+    "retained_variance": 0.9729866251725241
+  }
+}

@@ -1,0 +1,39 @@
+test_censor_after_month_and_terminal_ties (test_core.LabelTests.test_censor_after_month_and_terminal_ties) ... ok
+test_duplicate_rejected (test_core.LabelTests.test_duplicate_rejected) ... ok
+test_empirical_mass_conservation (test_core.LabelTests.test_empirical_mass_conservation) ... ok
+test_first_events_and_delayed_entry (test_core.LabelTests.test_first_events_and_delayed_entry) ... ok
+test_future_rows_do_not_change_past (test_core.LabelTests.test_future_rows_do_not_change_past) ... ok
+test_future_training_outcomes_rejected (test_core.LabelTests.test_future_training_outcomes_rejected) ... ok
+test_gap_keeps_only_known_months (test_core.LabelTests.test_gap_keeps_only_known_months) ... ok
+test_invalid_numeric_status_is_unknown (test_core.LabelTests.test_invalid_numeric_status_is_unknown) ... ok
+test_joint_curve_mass_and_monotonicity_after_calibration (test_core.LabelTests.test_joint_curve_mass_and_monotonicity_after_calibration) ... ok
+test_later_ra_modification_preserves_d90 (test_core.LabelTests.test_later_ra_modification_preserves_d90) ... ok
+test_month_start_rejected (test_core.LabelTests.test_month_start_rejected) ... ok
+test_same_month_priority (test_core.LabelTests.test_same_month_priority) ... ok
+test_target_does_not_change_features (test_core.LabelTests.test_target_does_not_change_features) ... ok
+test_train_only_imputation (test_core.LabelTests.test_train_only_imputation) ... ok
+test_transfers_not_credit_events (test_core.LabelTests.test_transfers_not_credit_events) ... ok
+test_unknown_is_not_current (test_core.LabelTests.test_unknown_is_not_current) ... ok
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/10 22:22:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/10 22:22:21 WARN MacAddressUtil: Failed to find a usable hardware address from the network interfaces; using random bytes: 8d:9f:e8:6d:f4:0b:cc:e2
+test_july2026_adapter_and_width_guard (test_core.SparkTests.test_july2026_adapter_and_width_guard) ... ok
+test_manifest_ignores_stale_parts (test_core.SparkTests.test_manifest_ignores_stale_parts) ... ok
+test_spark_matches_independent_oracle_two_cutoffs (test_core.SparkTests.test_spark_matches_independent_oracle_two_cutoffs) ... /workspace/scratch/2f3b32b91ab1/.deps/pyspark/sql/pandas/conversion.py:485: DeprecationWarning: is_datetime64tz_dtype is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.DatetimeTZDtype)` instead.
+  if should_localize and is_datetime64tz_dtype(s.dtype) and s.dt.tz is not None:
+[Stage 42:>                 (0 + 2) / 2][Stage 43:>                 (0 + 0) / 2]                                                                                /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py:791: ResourceWarning: unclosed <socket.socket fd=8, family=2, type=1, proto=6, laddr=('127.0.0.1', 44446), raddr=('127.0.0.1', 36745)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py:791: ResourceWarning: unclosed <socket.socket fd=8, family=2, type=1, proto=6, laddr=('127.0.0.1', 39936), raddr=('127.0.0.1', 33449)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py:791: ResourceWarning: unclosed <socket.socket fd=8, family=2, type=1, proto=6, laddr=('127.0.0.1', 55078), raddr=('127.0.0.1', 46621)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 13.157s
+
+OK

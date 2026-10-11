@@ -1,0 +1,22 @@
+{
+  "selected_variant": "joint_calibrated",
+  "validation_mean_brier": {
+    "joint_raw": 0.07111310505916829,
+    "joint_calibrated": 0.07104701725456358
+  },
+  "selected_on": "validation only; mean 12/24 IPCW Brier",
+  "freeze_before": "2020-01-01",
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST",
+  "joint_calibration": {
+    "objective": 0.17251966901327784,
+    "success": true,
+    "parameters": [
+      0.02094838367339425,
+      0.01929724938355012,
+      -0.0877833044434898,
+      -0.005034033404320559,
+      0.027158622482574
+    ],
+    "fitted_on": "calibration phase only; monthly log loss + ridge .002"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "phases": {
+    "train": {
+      "start": "2007-01-01",
+      "end": "2015-12-01",
+      "asof": "2015-12-01"
+    },
+    "calibration": {
+      "start": "2016-01-01",
+      "end": "2016-12-01",
+      "asof": "2019-12-01"
+    },
+    "validation": {
+      "start": "2017-01-01",
+      "end": "2017-12-01",
+      "asof": "2019-12-01"
+    },
+    "test": {
+      "start": "2020-01-01",
+      "end": "2021-12-01",
+      "asof": "2023-12-01"
+    }
+  },
+  "horizons": [
+    12,
+    24
+  ],
+  "data_kind": "SYNTHETIC_FUNCTIONAL_TEST"
+}

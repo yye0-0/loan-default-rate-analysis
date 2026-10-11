@@ -1,0 +1,25 @@
+{
+  "data_kind": "SYNTHETIC_SMOKE_TEST",
+  "event": "first observed 90+ day delinquency (delinquency_months >= 3)",
+  "estimand": "cause-specific/net risk, payoff treated as censoring",
+  "included": 2400,
+  "excluded": 0,
+  "split_counts": [
+    1199,
+    394,
+    807
+  ],
+  "shape": 1.420518808657905,
+  "concordance": {
+    "validation": {
+      "harrell_c": 0.6585719552660686,
+      "evaluated_n": 394,
+      "method": "Harrell C, unweighted, no IPCW"
+    },
+    "test": {
+      "harrell_c": 0.6242656419719922,
+      "evaluated_n": 807,
+      "method": "Harrell C, unweighted, no IPCW"
+    }
+  }
+}

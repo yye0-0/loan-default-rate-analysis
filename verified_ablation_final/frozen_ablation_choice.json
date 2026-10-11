@@ -1,0 +1,5 @@
+{
+  "selected_feature_set": "add_composite",
+  "selected_model": "random_forest",
+  "selection": "validation Brier only; frozen before test evaluation"
+}
